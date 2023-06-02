@@ -16,8 +16,6 @@ public class OcrNumbersTest {
         var actual = OcrNumbers.Convert(rows);
         assertEquals("0", actual);
     }
-
-	@Ignore	
     @Test
     public void recognizes_1()
     {
@@ -29,8 +27,6 @@ public class OcrNumbersTest {
         var actual = OcrNumbers.Convert(rows);
         assertEquals("1", actual);
     }
-
-	@Ignore	
     @Test
     public void unreadable_but_correctly_sized_inputs_return_()
     {

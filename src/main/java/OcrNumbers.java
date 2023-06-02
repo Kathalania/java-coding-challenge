@@ -12,6 +12,13 @@ public class OcrNumbers
                          "   ")){
             return "0";
         }
+        if (input.equals("   " +
+                         "  |" +
+                         "  |" +
+                         "   ")) {
+            return "1";
+        }
+
         return "?";
     }
 }
