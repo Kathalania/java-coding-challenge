@@ -47,13 +47,6 @@ public class Person {
                Objects.equals(birthday, person2.birthday);
     }
 
-
-
-    /// <summary>
-    /// Gets the first names of the given person enumerable unordered in this format: 1. Alpha, 2. Beta,...
-    /// </summary>
-    /// <param name="persons">The persons enumerable</param>
-    /// <returns>The first names of the given persons enumerable</returns>
     public static String getFirstNames(ArrayList<Person> persons) {
         if (persons == null || persons.isEmpty() || persons.size() == 0){
             return "";
@@ -72,11 +65,6 @@ public class Person {
         return stringBuilder.toString();
     }
 
-    /// <summary>
-    /// Gets the first names of the given persons enumerable ordered in this format: 1. Alpha, 2. Beta,...
-    /// </summary>
-    /// <param name="persons">The persons enumerable</param>
-    /// <returns>The first names of the given persons enumerable</returns>
     public static String getFirstNamesOrdered(ArrayList<Person> persons) {
         List<Person> sortedPersons =  persons.stream()
                 .sorted(Comparator.comparing(Person::getFirstName))
