@@ -38,8 +38,6 @@ public class OcrNumbersTest {
         var actual = OcrNumbers.Convert(rows);
         assertEquals("?", actual);
     }
-
-	@Ignore	
     @Test(expected = IllegalArgumentException.class)
     public void input_with_a_number_of_lines_that_is_not_a_multiple_of_four_raises_an_error()
     {
@@ -50,8 +48,6 @@ public class OcrNumbersTest {
 
         OcrNumbers.Convert(rows);
     }
-
-	@Ignore	
     @Test(expected = IllegalArgumentException.class)
     public void input_with_a_number_of_columns_that_is_not_a_multiple_of_three_raises_an_error()
     {
@@ -63,8 +59,7 @@ public class OcrNumbersTest {
 
         OcrNumbers.Convert(rows);
     }
-
-	@Ignore	
+    @Ignore
     @Test
     public void recognizes_110101100()
     {
@@ -91,7 +86,6 @@ public class OcrNumbersTest {
         assertEquals("11?10?1?0", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_2()
     {
@@ -105,7 +99,6 @@ public class OcrNumbersTest {
         assertEquals("2", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_3()
     {
@@ -119,7 +112,6 @@ public class OcrNumbersTest {
         assertEquals("3", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_4()
     {
@@ -133,7 +125,6 @@ public class OcrNumbersTest {
         assertEquals("4", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_5()
     {
@@ -147,7 +138,6 @@ public class OcrNumbersTest {
         assertEquals("5", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_6()
     {
@@ -161,7 +151,6 @@ public class OcrNumbersTest {
         assertEquals("6", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_7()
     {
@@ -175,7 +164,6 @@ public class OcrNumbersTest {
         assertEquals("7", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_8()
     {
@@ -189,7 +177,6 @@ public class OcrNumbersTest {
         assertEquals("8", actual);
     }
 
-	@Ignore	
     @Test
     public void recognizes_9()
     {
