@@ -32,6 +32,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public boolean personIsEqual()}{
+
+        }
+
     /// <summary>
     /// Gets the first names of the given person enumerable unordered in this format: 1. Alpha, 2. Beta,...
     /// </summary>
