@@ -60,7 +60,14 @@ public class Person {
             throw new NoSuchElementException("No persons found");
         }
 
-        throw new UnsupportedOperationException("Not implemented yet");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < persons.size(); i++){
+            Person person = persons.get(i);
+            if (person.firstName != null){
+                stringBuilder.append((i+1) + ". " + person.getFirstName());
+            }
+        }
+        return stringBuilder.toString();
     }
 
     /// <summary>
