@@ -1,8 +1,7 @@
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Person {
 
@@ -79,6 +78,10 @@ public class Person {
     /// <param name="persons">The persons enumerable</param>
     /// <returns>The first names of the given persons enumerable</returns>
     public static String getFirstNamesOrdered(ArrayList<Person> persons) {
-        throw new UnsupportedOperationException("Not implemented yet");
+        List<Person> sortedPersons =  persons.stream()
+                .sorted(Comparator.comparing(Person::getFirstName))
+                .collect(Collectors.toList());
+
+        return getFirstNames(new ArrayList<>(sortedPersons));
     }
 }
