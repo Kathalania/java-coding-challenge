@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class OcrNumbers {
     private static final String[] NUMBER_PATTERNS = { // eventuell auslagern in Enum
@@ -53,6 +55,9 @@ public class OcrNumbers {
             " _|" +
             "   "  // 9
     };
+
+    private static final Map<String, Integer> NUMBER_MAP = createNumberMap();
+
     public static String Convert(String input) {
         input = input.replaceAll("\n", "");
 
@@ -60,25 +65,26 @@ public class OcrNumbers {
             throw new IllegalArgumentException("Invalid length of input");
         }
 
-        List<String> numbers = convertInputToNumbers(input);
-
-        for (int i = 0; i < NUMBER_PATTERNS.length; i++) {
-            if (input.equals(NUMBER_PATTERNS[i])) {
-                return Integer.toString(i);
-            }
-        }
-
-        return "?";
-    }
-
-    private static List<String> convertInputToNumbers(String input) {
-        List<String> numbers = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
 
         for (int i = 0; i < input.length(); i += 12) {
             String number = input.substring(i, i + 12);
-            numbers.add(number);
+            Integer numericValue = NUMBER_MAP.getOrDefault(number, -1);
+            if (numericValue != -1) {
+                stringBuilder.append(numericValue);
+            } else {
+                stringBuilder.append("?");
+            }
         }
 
-        return numbers;
+        return stringBuilder.toString();
+    }
+
+    private static Map<String, Integer> createNumberMap() {
+        Map<String, Integer> numberMap = new HashMap<>();
+        for (int i = 0; i < NUMBER_PATTERNS.length; i++) {
+            numberMap.put(NUMBER_PATTERNS[i], i);
+        }
+        return numberMap;
     }
 }

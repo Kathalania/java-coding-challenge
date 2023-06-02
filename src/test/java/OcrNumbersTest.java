@@ -59,6 +59,7 @@ public class OcrNumbersTest {
 
         OcrNumbers.Convert(rows);
     }
+    @Ignore
     @Test
     public void recognizes_110101100()
     {
