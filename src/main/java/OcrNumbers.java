@@ -1,65 +1,63 @@
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class OcrNumbers {
-    private static final String[] NUMBER_PATTERNS = { // eventuell auslagern in Enum
+    private static final String[] NUMBER_PATTERNS = {
             " _ " +
             "| |" +
             "|_|" +
-            "   ", // 0
+            "   ",
 
             "   " +
             "  |" +
             "  |" +
-            "   ", // 1
+            "   ",
 
             " _ " +
             " _|" +
             "|_ " +
-            "   ", // 2
+            "   ",
 
             " _ " +
             " _|" +
             " _|" +
-            "   ", // 3
+            "   ",
 
             "   " +
             "|_|" +
             "  |" +
-            "   ", // 4
+            "   ",
 
             " _ " +
             "|_ " +
             " _|" +
-            "   ", // 5
+            "   ",
 
             " _ " +
             "|_ " +
             "|_|" +
-            "   ", // 6
+            "   ",
 
             " _ " +
             "  |" +
             "  |" +
-            "   ", // 7
+            "   ",
 
             " _ " +
             "|_|" +
             "|_|" +
-            "   ", // 8
+            "   ",
 
             " _ " +
             "|_|" +
             " _|" +
-            "   "  // 9
+            "   "
     };
 
     private static final Map<String, Integer> NUMBER_MAP = createNumberMap();
 
     public static String Convert(String input) {
-        input = input.replaceAll("\n", "");
+        input = input.replace("\n", "");
 
         if (input.length() % 12 != 0){
             throw new IllegalArgumentException("Invalid length of input");
