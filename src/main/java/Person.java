@@ -57,7 +57,7 @@ public class Person {
     /// <returns>The first names of the given persons enumerable</returns>
     public static String getFirstNames(ArrayList<Person> persons) {
         if (persons == null || persons.isEmpty() || persons.size() == 0){
-            throw new NoSuchElementException("No persons found");
+            return "";
         }
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -65,6 +65,9 @@ public class Person {
             Person person = persons.get(i);
             if (person.firstName != null){
                 stringBuilder.append((i+1) + ". " + person.getFirstName());
+            }
+            if (i < persons.size() -1) {
+                stringBuilder.append(", ");
             }
         }
         return stringBuilder.toString();
